@@ -1,6 +1,7 @@
 #include<iostream>
+#include<algorithm>
 #include<fstream>
-int main()
+int main1()
 {
 	using namespace std;
 	int a =10;
@@ -56,5 +57,45 @@ int main()
 		}
 	return 0;
 }
+
+int numbers[10]={1,3,2,6};
+int iterative(int *a,const int x,const int left,const int right){
+	std::cout<<"-------------------recursive----------------"<<std::endl;
+	if(left<right){
+		int middle=(left+right)/2;
+		if(x<middle) return iterative(a,x,left,middle-1);
+		else if(x>middle) return iterative(a,x,middle+1,right);
+		else return middle;
+	}
+	return 1;
+}
+        
+void  Permutations(int *a,const int k,const int m){
+	if(k==m){
+		for(int i=0;i<=m;i++) std::cout<<a[i]<<" ";
+		std::cout<<std::endl;
+	}
+	else{
+		for(int i =k;i<=m;i++){
+			std::swap(a[k],a[i]);
+		        Permutations(a,k+1,m);
+			std::swap(a[k],a[i]);
+		}
+	}
+}
+
+
+
+
+
+
+
+int main(){
+     using namespace std;
+                                              
+
+}
+
+
 
 
